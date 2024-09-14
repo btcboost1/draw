@@ -1,8 +1,5 @@
-import Image from "next/image";
-import Link from 'next/link';
+import Image from "next/image"; // 重新导入Image组件
 
-
-  
 const artworks = [
   { title: 'Artwork 1', imageUrl: '/images/artwork1.jpg' },
   { title: 'Artwork 2', imageUrl: '/images/artwork2.jpg' },
@@ -16,7 +13,8 @@ const Home: React.FC = () => {
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {artworks.map((artwork, index) => (
           <div key={index} style={{ margin: '10px' }}>
-            <img src={artwork.imageUrl} alt={artwork.title} style={{ width: '200px', height: '200px' }} />
+            {/* 使用Image组件替换img标签 */}
+            <Image src={artwork.imageUrl} alt={artwork.title} width={200} height={200} />
             <h2>{artwork.title}</h2>
           </div>
         ))}
@@ -24,6 +22,5 @@ const Home: React.FC = () => {
     </div>
   );
 };
-
 
 export default Home;
